@@ -6,8 +6,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 
 import java.time.Duration;
-
-import static jdk.internal.agent.Agent.getText;
 import static org.testng.Assert.assertEquals;
 
 public class AuthorizeClass extends BaseTest {
@@ -19,7 +17,7 @@ public class AuthorizeClass extends BaseTest {
         browser.findElement(By.id("user-name")).sendKeys("standard_user");
         browser.findElement(By.xpath("//input[@placeholder='Password']")).sendKeys("secret_sauce");
         browser.findElement(By.id("login-button")).click();
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("//span[text='Products']")));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[text()='Products']")));
     }
 
     @Test
@@ -29,8 +27,8 @@ public class AuthorizeClass extends BaseTest {
         browser.findElement(By.id("user-name")).sendKeys("111");
         browser.findElement(By.xpath("//input[@placeholder='Password']")).sendKeys("secret_sauce");
         browser.findElement(By.id("login-button")).click();
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[text='Products']")));
-        String errorText = browser.findElement(By.xpath("//span[text='Products']")).getText();
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[text()='Products']")));
+        String errorText = browser.findElement(By.xpath("//span[text()='Products']")).getText();
         assertEquals(errorText, "Epic sadface: Username and password do not match any user in this service");
     }
 }
