@@ -16,17 +16,18 @@ public class LoginTest extends BaseTest {
         //текст продукты
         assertEquals(productsPage.getTitleText(), "Products");
     }
-    @DataProvider (name = "invalidUser")
+
+    @DataProvider(name = "invalidUser")
     public Object[][] loginData() {
-        return new Object[][] {
-                {"locked_out_user", "secret_sauce","Epic sadface: Sorry, this user has been locked out."},
+        return new Object[][]{
+                {"locked_out_user", "secret_sauce", "Epic sadface: Sorry, this user has been locked out."},
                 {"standard_user", "111", "Epic sadface: Username and password do not match any user in this service"},
                 {"standard_user", "", "Epic sadface: Password is required"},
                 {"", "secret_sauce", "Epic sadface: Username is required"}
         };
     }
 
-    @Test (dataProvider = "invalidUser")
+    @Test(dataProvider = "invalidUser")
     public void incorrectLogin(String user, String password, String errorMessage) {
         loginPage.open();
         loginPage.login(user, password);

@@ -11,16 +11,16 @@ public class ProductsPage extends BasePage {
     private final By title = By.xpath("//*[data-test='title']");
 
 
-public ProductsPage(WebDriver driver) {
-    super(driver);
-}
+    public ProductsPage(WebDriver driver) {
+        super(driver);
+    }
 
     public boolean isPageOpen() {
-    return driver.findElement(title).isDisplayed();
+        return driver.findElement(title).isDisplayed();
     }
 
     public String getTitleText() {
-    return driver.findElement(title).getText();
+        return driver.findElement(title).getText();
     }
 
     public void addToCart(final String goodsName) {
@@ -34,13 +34,11 @@ public ProductsPage(WebDriver driver) {
     public void addToCart(final int index) {
         // находим все кнопки добавить в корзину, далее выбираем индекс
         By addToCartt = By.xpath("//*[text()= 'Add to cart']");
-        driver.findElement(addToCartt).get(index).click();
+        driver.findElements(addToCartt).get(index).click();
     }
 
     public void switchToCart() {
         By cartLink = By.cssSelector("data-test='shopping-cart-link']");
         driver.findElement(cartLink).click();
     }
-
-    }
-
+}
