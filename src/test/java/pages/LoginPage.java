@@ -6,7 +6,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class LoginPage extends BasePage {
 
-    private final By loginInput = By.xpath("username");
+    private final By loginInput = By.id("user-name");
     private final By passInput = By.id("password");
     private final By loginBtn = By.id("login-button");
     private final By errorMsg = By.xpath("//h3[@data-test='error']");

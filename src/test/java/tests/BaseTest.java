@@ -31,7 +31,6 @@ public class BaseTest {
 
         driver = new ChromeDriver(options);
         wait = new WebDriverWait(driver, Duration.ofSeconds(3));
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(6));
         loginPage = new LoginPage(driver);
         productsPage = new ProductsPage(driver);
         cartPage = new CartPage(driver);
