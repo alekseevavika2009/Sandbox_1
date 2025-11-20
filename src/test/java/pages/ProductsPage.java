@@ -9,7 +9,8 @@ public class ProductsPage extends BasePage {
     private static final String ADD_TO_CART =
             "//text()='%s']//ancestor::div[@class='inventory_item']//button[text()='Add to cart']";
     private final By title = By.xpath("//*[@data-test='title']");
-
+    private final By addToCartButton = By.xpath("//button[text()='Add to cart']");
+    private final By cartLink = By.cssSelector(".shopping_cart_link");
 
     public ProductsPage(WebDriver driver) {
         super(driver);
@@ -33,12 +34,10 @@ public class ProductsPage extends BasePage {
 
     public void addToCart(final int index) {
         // находим все кнопки добавить в корзину, далее выбираем индекс
-        By addToCartt = By.xpath("//*[text()= 'Add to cart']");
-        driver.findElements(addToCartt).get(index).click();
+        driver.findElements(addToCartButton).get(index).click();
     }
 
     public void switchToCart() {
-        By cartLink = By.cssSelector("data-test='shopping-cart-link']");
         driver.findElement(cartLink).click();
     }
 }

@@ -15,7 +15,6 @@ import pages.ProductsPage;
 import java.time.Duration;
 
 public class BaseTest {
-    private static final Logger log = LoggerFactory.getLogger(BaseTest.class);
     public WebDriver driver;
     public WebDriverWait wait;
     //показываем базовому классу какие есть пейджи
