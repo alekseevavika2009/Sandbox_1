@@ -22,17 +22,19 @@ public class LoginPage extends BasePage {
         driver.get(BASE_URL);
     }
 
-    @Step("Логинимся под кредами: логин = {user.email}, пароль = *****")
+    @Step("Логинимся под кредами пользователя")
     public void login(User user) {
         fillInLogin(user.getEmail());
         fillPassword(user.getPassword());
         pressLoginBtn();
     }
 
+    @Step("Вводим логин = {user.email}")
     public void fillInLogin(String loginName) {
         driver.findElement(loginInput).sendKeys(loginName);
     }
 
+    @Step("Вводим пароль = *****")
     public void fillPassword(String password) {
         driver.findElement(passInput).sendKeys(password);
     }
