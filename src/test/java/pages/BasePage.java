@@ -2,17 +2,17 @@ package pages;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import utils.PropertyReader;
 
 import java.time.Duration;
 
 public abstract class BasePage {
-    public static final String BASE_URL = "https://www.saucedemo.com/";
-    protected WebDriver driver;
-    protected WebDriverWait wait;
+    public static final String BASE_URL = PropertyReader.getProperty("saucedemo.url");
+    WebDriver driver;
+    WebDriverWait wait;
 
-    //конструктор всегда имеет название класса к которому он принадлежит
     public BasePage(WebDriver driver) {
         this.driver = driver;
-        this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        this.wait = new WebDriverWait(driver, Duration.ofSeconds(3));
     }
 }

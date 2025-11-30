@@ -16,17 +16,16 @@ public class CartPage extends BasePage {
     }
 
     public ArrayList<String> getProductNames() {
-        //выкатываем список элементов по локатору (список имен), образуем новый список names
-        // далее проходимся по всем элементам в списке. в список добавляем каждое имя оттуда, где мы все это нашли
         List<WebElement> allProducts = driver.findElements(productNamesLocator);
         ArrayList<String> names = new ArrayList<>();
         for (WebElement product : allProducts) {
             names.add(product.getText());
         }
+
         return names;
     }
 
-    public void waitPageLoaded() {
+    public void wailPageLoaded() {
         driver.findElement(title).isDisplayed();
     }
 }
