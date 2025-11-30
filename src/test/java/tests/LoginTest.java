@@ -25,7 +25,7 @@ public class LoginTest extends BaseTest {
         loginPage.login(UserFactory.withAdminPermission());
         assertTrue(productsPage.isPageOpen());
         //AllureUtils.takeScreenshot(driver);
-        assertEquals(productsPage.getTitleText(), "ProductsS");
+        assertEquals(productsPage.getTitleText(), "Products");
     }
 
     @DataProvider()
